@@ -1,0 +1,227 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-color: black;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    padding: 2.5rem;
+    height: 100%;
+
+}
+.ul_menu{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.menu li:hover .menu_desplegable_interno{
+    display: block;
+}
+
+.menu_desplegable_interno li{
+    margin-top: 1rem;
+}
+
+.menu_desplegable_interno{
+    list-style: none;
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.993);
+    box-shadow: 0 0  10px 10px rgba(137, 20, 20, 0.5);
+    
+
+}
+
+
+nav ul li a{
+    text-decoration: none;
+    padding: 1rem 1rem 0rem 0rem;
+    font-size: x-large;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#logo{
+    width: 20vh;
+    padding: 0%;
+    margin: 0;
+}
+
+#promo_fondo{
+    background-image: url(../imagenes/Costco-Homepage.jpeg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15rem;
+}
+#promo_fondo2{
+    background-image: url(../imagenes/Mug-Homepage-Mobile.jpeg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15rem;
+}
+
+.promo_mensaje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+    margin-top: 2rem;
+
+}
+.promo_mensaje h1{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+.promo_mensaje svg{
+    scale: 1;
+    vertical-align:text-top;
+
+}
+
+.promo_mensaje button{
+    margin-top: 1rem;
+    background-color: #c42b2b;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    color: #000000d9;
+    font-weight: bolder;
+}
+
+.subtitulos{
+    font-size: 2rem;
+}
+section h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+
+#section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider{
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 3rem;
+    
+
+}
+
+
+.slider div{
+    scroll-snap-align: center;
+    background-color: #0e0e0ed9;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+    box-shadow: 0 0  10px 10px rgba(137, 20, 20, 0.5);
+
+}
+
+.slider div img{
+    border-radius: 2rem;
+    padding: 20px;
+    height: 200px;
+}
+
+.comprar{
+    font-weight: bolder;
+    color: #0e0e0ed9;
+    background-color: #c93a3a;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    
+}
+
+
+#siguenos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#follow{
+    color:#d75b5b;
+    font-weight: bold;
+}
+.slider2{
+    margin: 1rem;
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 3rem;
+}
+
+.slider2 img{
+    border-radius: 2rem;
+    width: 100%;
+    scroll-snap-align: center;
+    position: sticky;
+    margin: 1rem;
+}
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.footer div{
+    flex: 1;
+    margin: 2rem;
+}
+
+#links-secciones{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.2rem;
+}
+#links-secciones a{
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #e25353c1;
+    font-weight: bolder;
+}
+#redes{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#redes a{
+    scale: 1.5;
+    margin: 0.5rem;
+}
+
+

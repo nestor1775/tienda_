@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.producto{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.caja{
+    display: flex;
+    vertical-align: middle;
+    margin: 1rem;
+    flex: 1;
+    flex-wrap: wrap;
+    background-color: rgba(251, 97, 89, 0.357);
+    border-radius: 1rem;
+}
+
+#dere{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+#izq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 1rem;
+}
+#izq img{
+    margin: 1rem;
+    width: 7rem;
+    height: auto;
+    border-radius: 1rem;
+}
+
+#izq p{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+
+}
+.caja button{
+    height: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: rgba(251, 97, 89, 0.82);
+    border-radius: 0.6rem;
+}
+.caja button:hover{
+    border: .1rem solid rgba(0, 0, 0, 0.308);
+    transform-origin: 1s;
+}
+
+.caja button a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+    
+}
+
+#caja_pagar{
+    display: flex;
+    justify-content: center;
+}
+
+#caja_pagar button{
+    height: 1rem;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: rgb(62, 216, 134);
+    border-radius: 0.6rem;
+    margin-top: 1rem;
+}
+
+#caja_pagar button:hover{
+    border: .1rem solid rgba(0, 0, 0, 0.362);
+    transform-origin: 1s;
+}
+
+#caja_pagar button a{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+
