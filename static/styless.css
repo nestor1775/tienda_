@@ -1,0 +1,297 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-color: black;
+    
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    padding: 2.5rem;
+    height: 100%;
+
+}
+.ul_menu{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
+}
+.menu li:hover .menu_desplegable_interno{
+    display: block;
+}
+.menu_desplegable_interno{
+    list-style: none;
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.993);
+    box-shadow: 0 0  10px 10px rgba(137, 20, 20, 0.5);
+}
+
+.menu_desplegable_interno li{
+    margin-top: 1rem;
+}
+
+
+nav ul li a{
+    text-decoration: none;
+    padding: 1rem 1rem 0rem 0rem;
+    font-size: x-large;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#logo{
+    width: 20vh;
+    padding: 0%;
+    margin: 0;
+}
+
+#promo_fondo{
+    background-image: url(../imagenes/Subscription-Web.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15rem;
+}
+#promo_fondo2{
+    background-image: url(../imagenes/Mug-Homepage-Mobile.jpeg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15rem;
+}
+
+.promo_mensaje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+
+.promo_mensaje p{
+    align-self: baseline;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 100;
+}
+
+.promo_mensaje button{
+    margin-top: 1rem;
+    background-color: #c42b2b;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: none;
+    color: #000000d9;
+    font-weight: bolder;
+}
+
+.subtitulos{
+    font-size: 2rem;
+}
+section h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+
+#section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider{
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 3rem;
+    
+
+}
+
+
+.slider div{
+    scroll-snap-align: center;
+    background-color: #0e0e0ed9;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+    box-shadow: 0 0  10px 10px rgba(137, 20, 20, 0.5);
+
+}
+
+.slider div img{
+    border-radius: 2rem;
+    padding: 20px;
+    height: 200px;
+}
+
+.comprar{
+
+    background-color: #c93a3a;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    
+}
+
+.comprar a{
+    font-weight: bolder;
+    color: #0e0e0ed9;
+    text-decoration: none;
+    
+}
+
+
+#siguenos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#follow{
+    color:#d75b5b;
+    font-weight: bold;
+}
+.slider2{
+    margin: 1rem;
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 3rem;
+}
+
+.slider2 img{
+    border-radius: 2rem;
+    width: 100%;
+    scroll-snap-align: center;
+    position: sticky;
+    margin: 1rem;
+}
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.footer div{
+    flex: 1;
+    margin: 2rem;
+}
+
+#links-secciones{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.2rem;
+}
+#links-secciones a{
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #e25353c1;
+    font-weight: bolder;
+}
+#redes{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#redes a{
+    scale: 1.5;
+    margin: 0.5rem;
+}
+
+
+
+@media (min-width: 640px) {
+    * {
+        max-width: none;
+    }
+    #promo_fondo{
+        background-image: url(../imagenes/Subscription-Web.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 20rem;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .promo_mensaje p{
+        align-self: center;
+        text-align: center;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        max-width: 80%;
+    }
+    .subtitulos{
+        font-size: 1.5rem;
+    }
+
+    .slider{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        overflow: visible;
+        flex-wrap: wrap;
+    }
+
+    .slider div{
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #d75b5b;
+        margin: 2rem;
+        border-radius: 2rem;
+        box-shadow: 0 0  10px 10px rgba(137, 20, 20, 0.5);
+    
+    }
+
+    .slider div img{
+        border-radius: 2rem;
+        padding: 20px;
+        height: 300px;
+    }
+
+    .slider2{
+        margin: 1rem;
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 3rem;
+    }
+    
+    .slider2 img{
+        width: 23rem;
+    }
+
+    .footer{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .footer p{
+        text-align: center;
+        width: 100%;
+    }
+}

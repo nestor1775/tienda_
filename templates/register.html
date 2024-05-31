@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registro</h2>
+<div id="contenedor_form">
+    
+    <form method="POST" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
+        <label class="form-label">{{ form.username.label }}</label>
+        <input class="form-input" type="text" name="username" value="{{ form.username.data }}" size="32">
+        {% for error in form.username.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+        <div>
+            <label class="form-label">{{ form.email.label }}</label>
+            <input class="form-input" type="email" name="email" value="{{ form.email.data }}" size="32">
+            {% for error in form.email.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            <label class="form-label">{{ form.password.label }}</label>
+            <input class="form-input" type="password" name="password" size="32">
+            {% for error in form.password.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div>
+            <label class="form-label">{{ form.confirm_password.label }}</label>
+            <input class="form-input" type="password" name="confirm_password" size="32">
+            {% for error in form.confirm_password.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="caja_boton">
+            {{ form.submit(class="enviar_boton") }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}

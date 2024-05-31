@@ -1,0 +1,49 @@
+#contenedor_form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+h2{
+    margin: 1rem;
+    text-align: center;
+}
+
+.form-input{
+    color: black;
+    border: none;
+    width: 10rem;
+    border-radius: 10px;
+    height: 1.3rem;
+}
+
+.form-label{
+    display: inline-block; 
+    width: 150px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
+    text-align: center; 
+    margin-right: 10px; 
+}
+
+
+.caja_boton{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+.enviar_boton {
+    border: none;
+    background-color: gray;
+    color: black;
+    width: 4rem;
+    margin-top: 1rem;
+    height: 1.5rem;
+    border-radius: 8%;
+}
+
+.enviar_boton:hover{
+    color: white;
+    cursor: pointer;
+    background-color: rgb(253, 100, 100);
+}
