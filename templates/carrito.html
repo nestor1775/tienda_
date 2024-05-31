@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="producto">
+        {% for lista in listas %}
+        <div class="caja">
+            <div id="izq">
+                <img src="../imagenes/camisa1.jpeg" alt="">
+                <p>{{lista.producto}}.......{{lista.cantidad}} unidad/es</p>
+            </div>
+            <div id="dere">
+                <form onsubmit="return deletee('{{ lista.id }}')">
+                <button type="submit"><a href="#">Eliminar</a></button>
+            </div>
+        </div>
+        {% endfor %}
+        <div id="caja_pagar">
+            <button>
+                <a href="#">Pagar</a>
+            </button>
+        </div>
+        
+    </section>
+
+   
+
+    <script>
+        function deletee(id) {
+            fetch(`/ver_carrito/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Error al eliminar el producto');
+                }
+            });
+            return false;
+        }
+    </script>
+{% endblock %}

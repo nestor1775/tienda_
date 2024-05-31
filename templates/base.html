@@ -28,7 +28,7 @@
                     </ul>
                 </li>
 
-                <li class="links_menu"><a href="./paginas/carrito.html">Carrito</a></li>
+                <li class="links_menu"><a href="{{ url_for('ver_carrito') }}">Carrito</a></li>
                 {% if current_user.is_authenticated %}
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}

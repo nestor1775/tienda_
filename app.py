@@ -1,7 +1,7 @@
 # app.py
 from flask import Flask, render_template, redirect, url_for, flash, request
 from config import Config
-from models import db, User, bcrypt
+from models import db, User, bcrypt, Carritodb
 from forms import RegistrationForm, LoginForm
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 
@@ -68,6 +68,19 @@ def products():
 
 # @login_required
 
+
+@app.route('/carrito', methods=['GET','POST','DELETE'])
+def ver_carrito():
+    if request.method == 'POST':
+        id_borrar= request.form.get('id_borrar')
+        if id_borrar:
+            lista = carritodb.query.filter_by(id=id_borrar).first()
+            if lista:
+                db.session.delete(lista)
+                db.session.commit()
+                return redirect(url_for('carrito'))
+    listas = carritodb.query.all()
+    return render_template('carrito.html', listas=listas)
 
 if __name__ == '__main__':
     app.run(debug=True)
