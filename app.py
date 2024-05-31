@@ -4,9 +4,18 @@ from config import Config
 from models import db, User, bcrypt, Carritodb
 from forms import RegistrationForm, LoginForm
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required
+from flask_mail import Mail, Message
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+app.config['MAIL_SERVER'] = 'smtp.example.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'your-email@example.com'
+app.config['MAIL_PASSWORD'] = 'your-password'
+mail = Mail(app)
 
 db.init_app(app)
 bcrypt.init_app(app)
@@ -81,6 +90,24 @@ def ver_carrito():
                 return redirect(url_for('carrito'))
     listas = Carritodb.query.all()
     return render_template('carrito.html', listas=listas)
+
+@app.route('/buy', methods=['POST'])
+@login_required
+def buy():
+    user_email = current_user.email
+    carritos = Carritodb.query.filter_by(idUsuario=user_email).all()
+
+    msg = Message('Compra Realizada', sender='your-email@example.com', recipients=[user_email])
+    msg.body = f'Gracias por tu compra. Has comprado {len(carritos)} productos.'
+    mail.send(msg)
+
+    # Borrar todos los elementos del carrito
+    for carrito in carritos:
+        db.session.delete(carrito)
+    db.session.commit()
+
+    flash('Compra realizada. Se ha enviado un correo de confirmación.')
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
