@@ -74,12 +74,12 @@ def ver_carrito():
     if request.method == 'POST':
         id_borrar= request.form.get('id_borrar')
         if id_borrar:
-            lista = carritodb.query.filter_by(id=id_borrar).first()
+            lista = Carritodb.query.filter_by(id=id_borrar).first()
             if lista:
                 db.session.delete(lista)
                 db.session.commit()
                 return redirect(url_for('carrito'))
-    listas = carritodb.query.all()
+    listas = Carritodb.query.all()
     return render_template('carrito.html', listas=listas)
 
 if __name__ == '__main__':
