@@ -17,3 +17,23 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
+
+
+
+class Product(db.Model):
+
+    name = db.Column(db.String(255), primary_key=True)
+    price = db.Column(db.Float, nullable=False)
+    desc = db.Column(db.String(255), primary_key=True)
+    category = db.Column(db.String(30), primary_key=True)
+    image_url = db.Column(db.String(255))  
+
+
+    def __repr__(self):
+        return f"<Product(id={self.id}, name='{self.name}', price={self.price}, stock={self.stock}, image_url='{self.image_url}')>"
+
+class Category(db.Model):
+
+    name = db.Column(db.String(255), primary_key=True)
+    def __repr__(self):
+        return f"name='{self.name}'"

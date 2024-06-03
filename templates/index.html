@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+{% if userid==1 %}
+<a href="{{ url_for('reg_products') }}">Register product</a>
+{% endif %}
 <div id="promo_fondo"></div>
     <section class="promo_mensaje">
         <h1 >THE SOCIETY OF STRONG COFFEE</h1>
@@ -10,21 +13,15 @@
     <section id="section2">
         <h2 class="subtitulos">Recien sacados del horno</h2>
         <div class="slider">
+            {% for prod in productos %}
             <div>
-                <img src="./imagenes/camisa1.jpeg" alt="">
-                <p>$12.00</p>
+                <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
+                <h3>{{prod['name']}}</h3>
+                <h4>{{prod['category']}}</h4>
+                <h3>${{prod['price']}} </3>
                 <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
             </div>
-            <div>
-                <img src="./imagenes/camisa1.jpeg" alt="">
-                <p>$12.00</p>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
-            </div>
-            <div>
-                <img src="./imagenes/camisa1.jpeg" alt="">
-                <p>$12.00</p>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
-            </div>
+            {% endfor %}
         </div>
 
     </section>
