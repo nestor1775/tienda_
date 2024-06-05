@@ -20,11 +20,13 @@
                     <a href="{{ url_for('products') }}">Productos</a>
                     <!-- estos deberian ir a la misma direccion si no me equivoco, estando alli hacer un control de que producto mostrar "!!!!creo!!!!!" -->
                     <ul class="menu_desplegable_interno">
-                        <li class="links_menu"><a href="./paginas/seccion1.html">camisas</a></li>
-                        <li class="links_menu"><a href="./paginas/seccion2.html">Cafes</a></li>
-                        <li class="links_menu"><a href="./paginas/seccion3.html">tazas</a></li>
-                        <li class="links_menu"><a href="./paginas/seccion4.html">cafeteras</a></li>
-                        <li class="links_menu"><a href="./paginas/seccion5.html">té</a></li>
+                        <li class="links_menu"><a href="{{ url_for('camisas') }}">camisas</a></li>
+                        <li class="links_menu"><a href="{{ url_for('cafes') }}">Cafes</a></li>
+                        <li class="links_menu"><a href="{{ url_for('tazas') }}">tazas</a></li>
+                        <li class="links_menu"><a href="{{ url_for('cafeteras') }}">cafeteras</a></li>
+                        <li class="links_menu"><a href="{{ url_for('te') }}">té</a></li>
+                        <li class="links_menu"><a href="{{ url_for('misc') }}">Misc</a></li>
+
                     </ul>
                 </li>
 

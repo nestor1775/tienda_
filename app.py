@@ -46,19 +46,15 @@ def index():
         userid=user.id
     except:
         userid=0
-    # productos = db.session.query(products).all()
-
-    # db.session.close()
     conn = db.engine.connect()
 
-    # Sample query (replace with your specific query)
-    productos = db.session.query(Product).all()  # Fetch all products
-    db.session.close()  # Close session
+    productos = db.session.query(Product).all()  
+    db.session.close() 
 
     conn.close()
-
-    return render_template('index.html',productos=productos,userid=userid)
-
+    productos1 = productos[:6]
+    productos2 = productos[7:13]
+    return render_template('index.html',productos1=productos1,productos2=productos2,userid=userid)
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     global user
@@ -100,7 +96,67 @@ def logout():
 
 @app.route('/products')
 def products():
-    return render_template('products.html')
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).all()  
+    db.session.close() 
+    
+    conn.close()
+    return render_template('products.html',productos=productos)
+@app.route('/cafes')
+def cafes():
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).filter_by(category="Café").all()
+    db.session.close()
+
+    conn.close()
+    return render_template('cafes.html', productos=productos)
+@app.route('/camisas')
+def camisas():
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).filter_by(category="Camisa").all()
+    db.session.close()
+
+    conn.close()
+    return render_template('camisas.html', productos=productos)
+@app.route('/tazas')
+def tazas():
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).filter_by(category="Taza").all()
+    db.session.close()
+
+    conn.close()
+    return render_template('tazas.html', productos=productos)
+@app.route('/cafeteras')
+def cafeteras():
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).filter_by(category="Cafetera").all()
+    db.session.close()
+
+    conn.close()
+    return render_template('cafeteras.html', productos=productos)
+@app.route('/te')
+def te():
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).filter_by(category="Té").all()
+    db.session.close()
+
+    conn.close()
+    return render_template('te.html', productos=productos)
+@app.route('/misc')
+def misc():
+    conn = db.engine.connect()
+
+    productos = db.session.query(Product).filter_by(category="Misc").all()
+    db.session.close()
+
+    conn.close()
+    return render_template('misc.html', productos=productos)
 
 @app.route('/register_product',methods=['GET', 'POST'])
 def reg_products():

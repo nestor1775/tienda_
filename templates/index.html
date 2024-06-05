@@ -3,7 +3,6 @@
 {% if userid==1 %}
 <a href="{{ url_for('reg_products') }}">Register product</a>
 {% endif %}
-<div id="promo_fondo"></div>
     <section class="promo_mensaje">
         <h1 >THE SOCIETY OF STRONG COFFEE</h1>
         <h2 class="subtitulos">Obten un 30% en tu primera compra</h2>
@@ -13,7 +12,7 @@
     <section id="section2">
         <h2 class="subtitulos">Recien sacados del horno</h2>
         <div class="slider">
-            {% for prod in productos %}
+            {% for prod in productos1 %}
             <div>
                 <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
                 <h3>{{prod['name']}}</h3>
@@ -35,22 +34,15 @@
     <section id="section3">
         <h2 class="subtitulos">Los mas vendidos</h2>
         <div class="slider">
+            {% for prod in productos2 %}
             <div>
-                <img src="./imagenes/camisa1.jpeg" alt="">
-                <p>$12.00</p>
+                <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
+                <h3>{{prod['name']}}</h3>
+                <h4>{{prod['category']}}</h4>
+                <h3>${{prod['price']}} </3>
                 <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
             </div>
-            <div>
-                <img src="./imagenes/camisa1.jpeg" alt="">
-                <p>$12.00</p>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
-            </div>
-            <div>
-                <img src="./imagenes/camisa1.jpeg" alt="">
-                <p>$12.00</p>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
-            </div>
-        </div>
+            {% endfor %}
     </section>
     <section id="siguenos">
         <h2 class="subtitulos">Unete a la comunidad!</h2>
