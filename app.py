@@ -1,7 +1,7 @@
 # app.py
 from flask import Flask, render_template, redirect, url_for, flash, request
 from config import Config
-from models import db, User,Product,Category, bcrypt
+from models import db, User,Product,Category, Carrito,bcrypt
 from forms import RegistrationForm, LoginForm
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 import email_validator
@@ -190,6 +190,37 @@ def reg_products():
 
 
 # @login_required
+@app.route('/carrito')
+@login_required
+def carrito():
+    try:
+        carrito_productos = Carrito.query.filter_by(usuario_id=current_user.id).all()
+        productos_en_carrito = []
+        for carrito_producto in carrito_productos:
+            producto = Product.query.filter_by(name=carrito_producto.producto_id).first()
+            if producto:
+                productos_en_carrito.append(producto)
+        return render_template('carrito.html', productos_en_carrito=productos_en_carrito)
+    except Exception as e:
+        flash('Error al cargar el carrito de compras')
+        return redirect(url_for('index'))
+    
+@app.route('/add_to_cart/<product_name>')
+@login_required
+def add_to_cart(product_name):
+    try:
+        # Verificar si el producto ya está en el carrito del usuario
+        carrito_producto = Carrito.query.filter_by(usuario_id=current_user.id, producto_id=product_name).first()
+        if carrito_producto:
+            flash('El producto ya está en tu carrito.')
+        else:
+            nuevo_carrito_producto = Carrito(producto_id=product_name, usuario_id=current_user.id)
+            db.session.add(nuevo_carrito_producto)
+            db.session.commit()
+            flash('Producto añadido al carrito exitosamente.')
+    except Exception as e:
+        flash('Hubo un error al añadir el producto al carrito.')
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':

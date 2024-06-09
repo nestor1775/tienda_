@@ -1,60 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
-{% if userid==1 %}
+{% if userid == 1 %}
 <a href="{{ url_for('reg_products') }}">Register product</a>
 {% endif %}
-    <section class="promo_mensaje">
-        <h1 >THE SOCIETY OF STRONG COFFEE</h1>
-        <h2 class="subtitulos">Obten un 30% en tu primera compra</h2>
-        <p>Como un apretón de manos secreto, su estatus en Society of Strong Coffee también le otorga acceso exclusivo a productos, eventos, foros y mucho más solo para suscriptores. Inicie una suscripción hoy para comenzar a cosechar los beneficios.</p>
-        <button> Obten una suscripción</button>
-    </section>
-    <section id="section2">
-        <h2 class="subtitulos">Recien sacados del horno</h2>
-        <div class="slider">
-            {% for prod in productos1 %}
-            <div>
-                <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
-                <h3>{{prod['name']}}</h3>
-                <h4>{{prod['category']}}</h4>
-                <h3>${{prod['price']}} </3>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
-            </div>
-            {% endfor %}
+<section class="promo_mensaje">
+    <h1>THE SOCIETY OF STRONG COFFEE</h1>
+    <h2 class="subtitulos">Obten un 30% en tu primera compra</h2>
+    <p>Como un apretón de manos secreto, su estatus en Society of Strong Coffee también le otorga acceso exclusivo a productos, eventos, foros y mucho más solo para suscriptores. Inicie una suscripción hoy para comenzar a cosechar los beneficios.</p>
+    <button>Obten una suscripción</button>
+</section>
+<section id="section2">
+    <h2 class="subtitulos">Recien sacados del horno</h2>
+    <div class="slider">
+        {% for prod in productos1 %}
+        <div>
+            <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
+            <h3>{{ prod.name }}</h3>
+            <h4>{{ prod.category }}</h4>
+            <h3>${{ prod.price }}</h3>
+            <button class="comprar"><a href="{{ url_for('add_to_cart', product_name=prod.name) }}">comprar</a></button>
         </div>
-
-    </section>
-    <div id="promo_fondo2"></div>
-    <section class="promo_mensaje">
-        <h3 >RESURGIR DE LAS CENIZAS</h3>
-        <p>Elaborada a mano con una nueva forma que nunca ha visto la luz del día, descubre la taza de café Death Wish 2024 y deja el pasado en el polvo.</p>
-        <button> Comprar ahora</button>
-    </section>
-
-    <section id="section3">
-        <h2 class="subtitulos">Los mas vendidos</h2>
-        <div class="slider">
-            {% for prod in productos2 %}
-            <div>
-                <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
-                <h3>{{prod['name']}}</h3>
-                <h4>{{prod['category']}}</h4>
-                <h3>${{prod['price']}} </3>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
-            </div>
-            {% endfor %}
-    </section>
-    <section id="siguenos">
-        <h2 class="subtitulos">Unete a la comunidad!</h2>
-        <p id="follow">@DEAHWHISHCOFFE</p>
-        <div class="slider2">
-
-                <img src="./imagenes/Talking-Coffee.png" alt="">
-
-                <img src="./imagenes/Coffee-Club-Recipe.png" alt="">
-
-                <img src="./imagenes/Shadow_Travel_Mug_4.jpeg" alt="">
-</div>
-
-    </section>
+        {% endfor %}
+    </div>
+</section>
+<div id="promo_fondo2"></div>
+<section class="promo_mensaje">
+    <h3>RESURGIR DE LAS CENIZAS</h3>
+    <p>Elaborada a mano con una nueva forma que nunca ha visto la luz del día, descubre la taza de café Death Wish 2024 y deja el pasado en el polvo.</p>
+    <button>Comprar ahora</button>
+</section>
+<section id="section3">
+    <h2 class="subtitulos">Los más vendidos</h2>
+    <div class="slider">
+        {% for prod in productos2 %}
+        <div>
+            <img src="{{ url_for('static', filename=prod['image_url']) }}" alt="failed to load">
+            <h3>{{ prod.name }}</h3>
+            <h4>{{ prod.category }}</h4>
+            <h3>${{ prod.price }}</h3>
+            <button class="comprar"><a href="{{ url_for('add_to_cart', product_name=prod.name) }}">comprar</a></button>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section id="siguenos">
+    <h2 class="subtitulos">Únete a la comunidad!</h2>
+    <p id="follow">@DEATHWHISHCOFFE</p>
+    <div class="slider2">
+        <img src="./imagenes/Talking-Coffee.png" alt="">
+        <img src="./imagenes/Coffee-Club-Recipe.png" alt="">
+        <img src="./imagenes/Shadow_Travel_Mug_4.jpeg" alt="">
+    </div>
+</section>
 {% endblock %}

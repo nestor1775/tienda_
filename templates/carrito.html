@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Tu carrito de compras</h2>
+{% if productos_en_carrito %}
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>Descripción</th>
+    <th>Categoría</th>
+    <th>Imagen</th>
+  </tr>
+  {% for producto in productos_en_carrito %}
+  <tr>
+    <td>{{ producto.name }}</td>
+    <td>${{ producto.price }}</td>
+    <td>{{ producto.desc }}</td>
+    <td>{{ producto.category }}</td>
+    <td><img src="{{ url_for('static', filename=producto.image_url) }}" alt="Imagen del producto"></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No hay productos en tu carrito.</p>
+{% endif %}
+<a href="{{ url_for('index') }}">Volver a la página principal</a>
+{% endblock %}

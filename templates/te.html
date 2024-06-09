@@ -15,7 +15,7 @@
                 <h3>{{prod['name']}}</h3>
                 <h4>{{prod['category']}}</h4>
                 <h3>${{prod['price']}} </3>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
+                <button class="comprar"><a href="{{ url_for('add_to_cart', product_name=prod.name) }}">comprar</a></button>
             </div>
             {% endfor %}
 
@@ -29,7 +29,7 @@
                 <h3>{{prod['name']}}</h3>
                 <h4>{{prod['category']}}</h4>
                 <h3>${{prod['price']}} </3>
-                <button class="comprar"><a href="./paginas/productos/producto1.html">comprar</a></button>
+                <button class="comprar"><a href="{{ url_for('add_to_cart', product_name=prod.name) }}">comprar</a></button>
             </div>
             {% endfor %}
     </section>

@@ -154,7 +154,7 @@ def load_products():
         price=product["precio"],
         desc=product["descripcion"],
         category=product["categoria"],
-        image_url=f"{random_img(product["categoria"])}",)
+        image_url=f"{random_img(product['categoria'])}",)
         db.session.add(new_product)
     categories =[
   "Café",

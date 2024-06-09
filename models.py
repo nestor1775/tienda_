@@ -37,3 +37,14 @@ class Category(db.Model):
     name = db.Column(db.String(255), primary_key=True)
     def __repr__(self):
         return f"name='{self.name}'"
+
+class Carrito(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    producto_id = db.Column(db.String(255), db.ForeignKey('product.name'), nullable=False)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    producto = db.relationship('Product', backref='carrito_productos')
+    usuario = db.relationship('User', backref='carrito_usuarios')
+
+    def __repr__(self):
+        return f"<Carrito(id={self.id}, producto_id='{self.producto_id}', usuario_id='{self.usuario_id}')>"
