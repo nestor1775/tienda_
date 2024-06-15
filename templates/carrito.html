@@ -20,6 +20,7 @@
   </tr>
   {% endfor %}
 </table>
+<button><a href="{{ url_for('checkout') }}">Comprar</a></button>
 {% else %}
 <p>No hay productos en tu carrito.</p>
 {% endif %}

@@ -222,6 +222,18 @@ def add_to_cart(product_name):
         flash('Hubo un error al añadir el producto al carrito.')
     return redirect(url_for('index'))
 
+@app.route('/checkout')
+@login_required
+def checkout():
+    try:
+        # Borrar todos los productos del carrito del usuario actual
+        Carrito.query.filter_by(usuario_id=current_user.id).delete()
+        db.session.commit()
+        flash('Compra realizada exitosamente.')
+    except Exception as e:
+        flash('Hubo un error al realizar la compra.')
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
